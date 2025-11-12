@@ -1,16 +1,16 @@
 project "Premake"
-	kind "Utility"
+    kind "Utility"
 
-	targetdir ("%{wks.location}/Build/Binaries/" .. outputdir .. "/%{prj.name}")
-    objdir ("%{wks.location}/Build/Intermediate/" .. outputdir .. "/%{prj.name}")
+    targetdir ("%{wks.location}/Build/Binaries/" .. CONFIG.outputdir .. "/%{prj.name}")
+    objdir ("%{wks.location}/Build/Intermediate/" .. CONFIG.outputdir .. "/%{prj.name}")
 
-	files
-	{
-		"%{wks.location}/**premake5.lua"
-	}
+    files
+    {
+        "%{wks.location}/**premake5.lua"
+    }
 
-	postbuildmessage "Regenerating project files with Premake5!"
-	postbuildcommands
-	{
-		"\"%{prj.location}bin/premake5\" %{_ACTION} --file=\"%{wks.location}premake5.lua\""
-	}
+    postbuildmessage "Regenerating project files with Premake5!"
+    postbuildcommands
+    {
+        "\"%{prj.location}Binaries/premake5\" %{_ACTION} --file=\"%{wks.location}premake5.lua\""
+    }

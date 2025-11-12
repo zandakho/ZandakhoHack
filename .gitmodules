@@ -2,3 +2,6 @@
 	path = Vendors/ImGui
 	url = https://github.com/ocornut/imgui
 	branch = features/shadows
+[submodule "Vendors/MinHook"]
+	path = Vendors/MinHook
+	url = https://github.com/TsudaKageyu/minhook

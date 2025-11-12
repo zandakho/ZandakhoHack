@@ -1,4 +1,5 @@
 CONFIG = 
 {
-    StartProject = "ZandakhoHack"
+    StartProject = "ZandakhoHack",
+    outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 }

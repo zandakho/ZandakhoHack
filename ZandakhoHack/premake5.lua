@@ -6,29 +6,43 @@ project "ZandakhoHack"
 
     buildoptions "/utf-8"
 
-    targetdir ("%{wks.location}/Build/Binaries/" .. outputdir .. "/%{prj.name}")
-    objdir ("%{wks.location}/Build/Intermediate/" .. outputdir .. "/%{prj.name}")
+    targetdir ("%{wks.location}/Build/Binaries/" .. CONFIG.outputdir .. "/%{prj.name}")
+    objdir ("%{wks.location}/Build/Intermediate/" .. CONFIG.outputdir .. "/%{prj.name}")
 
     files
     {
         "Source/**.h",
-        "Source/**.hpp",
-        "Source/**.cpp"
+        "Source/**.hpp", 
+        "Source/**.cpp",
+        "Source/**.rc",
+        "Source/**.def"
     }
 
     includedirs
     {
         "Source",
-        "%{IncludeDir.ImGui}"
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.MinHook}"
     }
 
     links
     {
-        "ImGui"
+        "ImGui",
+        "MinHook",
+        "%{Library.d3d11}",
+        "%{Library.d3dcompiler}",
+        "%{Library.dxgi}"
     }
+
+    filter "kind:SharedLib"
+        defines 
+        {
+            "ZH_BUILD_DLL"
+        }
 
     filter "system:windows"
         systemversion "latest"
+        defines "ZH_PLATFORM_WINDOWS"
 
     filter "configurations:Debug"
         defines "ZH_DEBUG"
@@ -36,6 +50,6 @@ project "ZandakhoHack"
         symbols "on"
 
     filter "configurations:Release"
-        defines "ZH_RELEASE"
+        defines "ZH_RELEASE" 
         runtime "Release"
         optimize "on"

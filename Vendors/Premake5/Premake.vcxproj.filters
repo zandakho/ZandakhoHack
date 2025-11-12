@@ -13,6 +13,9 @@
     <Filter Include="..\ImGui">
       <UniqueIdentifier>{4BEA8637-37B7-E142-60D0-CFEA4CFC16D1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\MinHook">
+      <UniqueIdentifier>{65302862-51E8-69AF-BAEF-420BA6C604A0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\ZandakhoHack\premake5.lua">
@@ -23,6 +26,9 @@
     </None>
     <None Include="..\ImGui\premake5.lua">
       <Filter>..\ImGui</Filter>
+    </None>
+    <None Include="..\MinHook\premake5.lua">
+      <Filter>..\MinHook</Filter>
     </None>
     <None Include="premake5.lua" />
   </ItemGroup>

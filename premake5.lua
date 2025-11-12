@@ -17,13 +17,12 @@ workspace "ZandakhoHack"
         ".editorconfig"
     }
 
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+    group "Dependencies"
+        include "Vendors/ImGui"
+        include "Vendors/MinHook"
+        include "Vendors/Premake5"
+    group ""
 
-group "Dependencies"
-    include "Vendors/ImGui"
-    include "Vendors/Premake5"
-group ""
-
-group "Core"
-    include "ZandakhoHack"
-group ""
+    group "Core"
+        include "ZandakhoHack"
+    group ""
