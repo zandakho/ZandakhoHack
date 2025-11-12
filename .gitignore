@@ -1,6 +1,14 @@
 # Prerequisites
 *.d
 
+# IDE
+.vs/
+
+# Dirs
+Binaries/
+Build/
+Intermediate/
+
 # Compiled Object files
 *.slo
 *.lo
