@@ -62,7 +62,9 @@
       <AdditionalIncludeDirectories>Source;..\Vendors\ImGui;..\Vendors\MinHook\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -73,6 +75,7 @@
       <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\Build\Binaries\Debug-windows-x86\ZandakhoHack\ZandakhoHack.lib</ImportLibrary>
       <ModuleDefinitionFile>Source/ZandakhoHack.def</ModuleDefinitionFile>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMTD /NODEFAULTLIB:LIBCMT %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -87,6 +90,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -98,6 +102,7 @@
       <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\Build\Binaries\Release-windows-x86\ZandakhoHack\ZandakhoHack.lib</ImportLibrary>
       <ModuleDefinitionFile>Source/ZandakhoHack.def</ModuleDefinitionFile>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMT /NODEFAULTLIB:LIBCMTD %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

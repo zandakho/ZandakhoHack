@@ -43,13 +43,29 @@ project "ZandakhoHack"
     filter "system:windows"
         systemversion "latest"
         defines "ZH_PLATFORM_WINDOWS"
+        
+        linkoptions
+        {
+            "/NODEFAULTLIB:LIBCMTD",
+            "/NODEFAULTLIB:LIBCMT"
+        }
 
     filter "configurations:Debug"
         defines "ZH_DEBUG"
         runtime "Debug"
         symbols "on"
 
+        linkoptions
+        {
+            "/NODEFAULTLIB:LIBCMT"
+        }
+
     filter "configurations:Release"
         defines "ZH_RELEASE" 
         runtime "Release"
         optimize "on"
+
+        linkoptions
+        {
+            "/NODEFAULTLIB:LIBCMTD"
+        }

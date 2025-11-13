@@ -3,13 +3,18 @@ include "Dependencies.lua"
 include "Config.lua"
 
 workspace "ZandakhoHack"
-    architecture "x86"
+    architecture(CONFIG.Architecture_x86)
     startproject(CONFIG.StartProject)
 
     configurations
     {
         "Debug",
         "Release"
+    }
+
+    flags
+    {
+        "MultiProcessorCompile"
     }
 
     SolutionItems

@@ -1,9 +1,19 @@
 #include "ZandakhoHack.h"
-#include <Windows.h>
+
 #include <d3d11.h>
 #include <imgui.h>
-#include <backends/imgui_impl_win32.h>
 #include <backends/imgui_impl_dx11.h>
+#include <backends/imgui_impl_win32.h>
+
+#include <MinHook.h>
+
+#include <print>
+#include <cstdio>
+#include <string>
+
+#ifdef ZH_PLATFORM_WINDOWS
+	#include <Windows.h>
+#endif
 
 ID3D11Device* g_pd3dDevice = nullptr;
 ID3D11DeviceContext* g_pd3dDeviceContext = nullptr;
