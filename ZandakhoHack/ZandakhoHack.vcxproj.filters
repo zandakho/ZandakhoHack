@@ -4,17 +4,33 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{C0FF640D-2C14-8DBE-F595-301E616989EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MinHook">
+      <UniqueIdentifier>{1A77E127-8656-60C3-8F6E-EB99FBCCC624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ZandakhoHack">
+      <UniqueIdentifier>{2C1B9CFF-187E-2BA4-C103-645AAD45F726}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\ZandakhoHack.h" />
+    <ClInclude Include="Source\MinHook\Hook.h">
+      <Filter>MinHook</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ZandakhoHack\ZandakhoHack.h">
+      <Filter>ZandakhoHack</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\zhack.h" />
+    <ClInclude Include="Source\zhackpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ImGui\ImGuiBuild.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ZandakhoHack.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Source\ZandakhoHack.def" />
+    <ClCompile Include="Source\MinHook\Hook.cpp">
+      <Filter>MinHook</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ZandakhoHack\ZandakhoHack.cpp">
+      <Filter>ZandakhoHack</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\zhackpch.cpp" />
   </ItemGroup>
 </Project>

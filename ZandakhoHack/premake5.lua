@@ -9,13 +9,14 @@ project "ZandakhoHack"
     targetdir ("%{wks.location}/Build/Binaries/" .. CONFIG.outputdir .. "/%{prj.name}")
     objdir ("%{wks.location}/Build/Intermediate/" .. CONFIG.outputdir .. "/%{prj.name}")
 
+    pchheader "zhackpch.h"
+    pchsource "Source/zhackpch.cpp"
+
     files
     {
         "Source/**.h",
         "Source/**.hpp", 
-        "Source/**.cpp",
-        "Source/**.rc",
-        "Source/**.def"
+        "Source/**.cpp"
     }
 
     includedirs
@@ -24,14 +25,16 @@ project "ZandakhoHack"
         "%{IncludeDir.ImGui}",
         "%{IncludeDir.MinHook}"
     }
-
+    
     links
     {
         "ImGui",
-        "MinHook",
-        "%{Library.d3d11}",
-        "%{Library.d3dcompiler}",
-        "%{Library.dxgi}"
+        "MinHook"
+    }
+
+    defines
+    {
+        "_CRT_SECURE_NO_WARNINGS",
     }
 
     filter "kind:SharedLib"
@@ -43,12 +46,34 @@ project "ZandakhoHack"
     filter "system:windows"
         systemversion "latest"
         defines "ZH_PLATFORM_WINDOWS"
-        
+
         linkoptions
         {
             "/NODEFAULTLIB:LIBCMTD",
             "/NODEFAULTLIB:LIBCMT"
         }
+
+        if USEAPI == GraphicsAPI.DirectX11 then
+            links
+            {
+                "d3d11",
+                "dxgi",
+                "d3dcompiler"
+            }
+            defines
+            {
+                "USEAPI_DirectX11"
+            }
+        elseif USEAPI == GraphicsAPI.OpenGL then
+            links
+            {
+                "opengl32"
+            }
+            defines
+            {
+                "USEAPI_OpenGL"
+            }
+        end
 
     filter "configurations:Debug"
         defines "ZH_DEBUG"

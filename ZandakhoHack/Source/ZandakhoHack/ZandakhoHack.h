@@ -5,6 +5,3 @@
 #else
     #define ZH_API __declspec(dllimport)
 #endif
-
-extern "C" ZH_API bool InitializeHack();
-extern "C" ZH_API void ShutdownHack();

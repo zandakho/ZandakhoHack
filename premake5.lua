@@ -3,7 +3,7 @@ include "Dependencies.lua"
 include "Config.lua"
 
 workspace "ZandakhoHack"
-    architecture(CONFIG.Architecture_x86)
+    architecture(CONFIG.Architecture_x64)
     startproject(CONFIG.StartProject)
 
     configurations
